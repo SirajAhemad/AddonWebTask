@@ -1,0 +1,5 @@
+.my_profile_picture{
+	width: 55px;
+  height: 55px;
+  object-fit: cover;
+}

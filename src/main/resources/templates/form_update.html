@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+<form action="" th:object="${User}" enctype="multipart/form-data" method="POST" th:action="@{/user/save-user}">
+    <div class="container-sm">
+        <div class="col-md-8 offset-md-2">
+        <div class="card" >
+            <h5 class="card-header">Update User</h5>
+            <div class="card-body" style="padding: 25px;">
+                <div class="form-floating mb-3">
+                    <input th:value="${users.username}" type="text" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input th:value="${users.mobileNo}" type="phone" class="form-control" id="floatingInput" name="mobileNo" placeholder="name@example.com">
+                    <label for="floatingInput">Mobile</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input th:value="${users.email}" type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+
+                <div class="form-floating">
+                    <input th:value="${users.address}" type="text" class="form-control" id="floatingPassword" name="address" placeholder="Password">
+                    <label for="floatingPassword">Address</label>
+                </div>
+                
+               
+                
+                <div class="input-group mb-3" style="margin-top: 25px;">
+                    <input type="file" class="form-control" id="image" name="image">
+                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                </div>
+                <button type="submit" href="#" class="btn btn-primary offset-3" style="margin-top: 25px;">Save</button>
+                <a  th:href="@{/user/view}" class="btn btn-primary offset-3" style="margin-top: 25px;">View Data</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

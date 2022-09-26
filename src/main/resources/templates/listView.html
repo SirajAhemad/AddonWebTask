@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+       <link rel="stylesheet" href="" th:href="@{/css/bootstrap.css}">
+        <link rel="stylesheet" href="" th:href="@{/css/style.css}">
+</head>
+<body>
+    
+     <section>
+   
+      <div class="card mr-3 ml-3">
+      
+         <div class="card-body">
+
+             <h1 class="text-center">Users</h1>   
+             
+             
+             <table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">#ID</th>
+			      <th scope="col">Photo</th>
+			      <th scope="col">Name</th>
+			      <th scope="col">Email</th>
+			      <th scope="col">Address</th>
+			      <th scope="col">Phone</th>
+			      <th scope="col">Action</th>
+			    </tr>
+			  </thead>
+		  <tbody>
+		    <tr th:each="c : ${users}">
+		      <td scope="row" th:text="${c.id}" >1</td>
+		      <td> 
+		      
+		   <img class="my_profile_picture" alt="Profile photo" src="" th:src="@{'/img/'+${c.imageUrl}}">
+		      <td><span th:text="${c.username}"></span></td> 
+		      
+		      </td>
+		      <td >
+		      
+		      <a href="#" th:href="@{'/users/'+${c.id}+'users/'}">
+		      
+		      <span th:text="${c.email}"></span>
+		      
+		      </a>
+		      
+		      </td>
+		      <td th:text="${c.address}"></td>
+		      <td th:text="${c.mobileNo}"></td>
+		      <td>
+		      <a th:href="@{'/user/delete/'+${c.id}}" class="btn btn-danger btn-sm">Delete</a>
+		      
+		      <form method="POST" th:action="@{'/user/update/'+${c.id}}" class="mt-2">
+		        
+		          <button type="submit" class="btn btn-primary btn-sm">Update</button>
+		      </form>
+		      
+		      </td>
+		       
+		    </tr>
+		  
+		  </tbody>
+</table>
+             
+                   
+
+         </div>
+      
+      </div>
+      
+   </section>
+
+</body>
+</html>
